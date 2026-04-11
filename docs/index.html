@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta name="google-site-verification" content="rUF7tRjNVEFce6WIyM8hTSA42kkN9CfH8Xayz1j_hXE" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acción Cultural Torrero</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {margin:0; padding:0; box-sizing:border-box;}
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background:#f5f5f5;
+      color:#333;
+      scroll-behavior:smooth;
+    }
+
+    /* NAV */
+    nav {
+      position:fixed;
+      width:100%;
+      top:0;
+      background:rgba(0,0,0,0.85);
+      padding:15px;
+      text-align:center;
+      z-index:1000;
+    }
+
+    nav a {
+      color:white;
+      margin:0 15px;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    /* HEADER CON OVERLAY */
+    header {
+      height:100vh;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+    }
+
+    .carousel {
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      z-index:-1;
+    }
+
+    .carousel img {
+      position:absolute;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:0;
+      transition:opacity 1s ease;
+    }
+
+    .carousel img.active {
+      opacity:1;
+    }
+
+    header::after {
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.5);
+      z-index:0;
+    }
+
+    header * {
+      position:relative;
+      z-index:1;
+    }
+
+    header h1 {font-size:3rem;}
+
+    .btn-main {
+      margin-top:20px;
+      padding:12px 25px;
+      background:#b22222;
+      color:white;
+      border-radius:30px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .btn-main:hover {background:#800000;}
+
+    section {
+      padding:80px 20px;
+      max-width:1100px;
+      margin:auto;
+      opacity:0;
+      transform:translateY(40px);
+      transition:0.8s;
+    }
+
+    section.visible {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .card {
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {color:#b22222; margin-bottom:15px;}
+
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .grid img {
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:10px;
+      transition:0.3s;
+      cursor:pointer;
+    }
+
+    .grid img:hover {transform:scale(1.05);}
+
+    footer {
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:30px;
+    }
+
+    @media(max-width:600px){
+      nav a {display:block; margin:10px 0;}
+      header h1 {font-size:2rem;}
+    }
+  
+    /* WhatsApp Button */
+    #whatsappBtn {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 2000;
+      transition: transform 0.2s ease;
+    }
+
+    #whatsappBtn:hover {
+      transform: scale(1.1);
+    }
+
+  
+    /* Formulario PRO */
+    form input, form textarea {
+      width:100%;
+      padding:12px;
+      margin-bottom:10px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-family:inherit;
+      transition:0.3s;
+    }
+
+    form input:focus, form textarea:focus {
+      border-color:#b22222;
+      outline:none;
+      box-shadow:0 0 5px rgba(178,34,34,0.3);
+    }
+
+    textarea {
+      height:120px;
+      resize:none;
+    }
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#nosotros">Nosotros</a>
+  <a href="#actividades">Actividades</a>
+  <a href="#eventos">Eventos</a>
+  <a href="#galeria">Galería</a>
+  <a href="#contacto">Contacto</a>
+</nav>
+
+<header id="inicio">
+  <div class="carousel">
+    <img src="fondo.jpg" class="active">
+    <img src="torrero.jpg">
+    <img src="parque.jpg">
+  </div>
+  <h1>Acción Cultural Torrero</h1>
+  <p>Cultura, tradición y vida en el barrio</p>
+  <a href="#galeria" class="btn-main">Ver Galería</a>
+</header>
+
+<section id="nosotros">
+  <div class="card">
+    <h2>Sobre Nosotros</h2>
+    <p>Somos un grupo de chavales del barrio a los que muchos de vosotros ya conocéis desde hace años. Hemos crecido aquí, compartiendo calles, plazas y momentos que forman parte de nuestra vida y de nuestra identidad.
+
+Esta asociación ha nacido en 2026, pero nuestra historia viene de mucho antes. Durante años hemos estado presentes en la vida del barrio, participando, ayudando y disfrutando de muchas de sus tradiciones, especialmente de una de nuestras mayores pasiones: los cabezudos de Torrero.
+
+Pero nuestro compromiso va más allá. No solo queremos mantener viva esta tradición, sino también formar parte activa de la cultura del barrio. Nos mueve la ilusión de organizar, colaborar y aportar en todo tipo de actividades: fiestas populares, eventos culturales, actividades para jóvenes y mayores, y cualquier iniciativa que ayude a dar vida a nuestras calles.
+
+Para nosotros, los cabezudos son solo una parte de algo mucho más grande. Representan la unión, la alegría y el espíritu de barrio que queremos seguir construyendo entre todos. Queremos que las fiestas sigan siendo un punto de encuentro, donde vecinos de todas las edades puedan compartir, disfrutar y sentirse parte de algo común.
+
+Con la creación de esta asociación damos un paso adelante con la intención de implicarnos aún más, de trabajar en equipo y de colaborar con otras entidades, peñas y vecinos para que Torrero siga siendo un barrio lleno de vida, cultura y tradición.
+
+También queremos agradecer a todas las personas que durante años han mantenido vivas estas costumbres. Gracias a su esfuerzo hoy nosotros podemos continuar ese camino y aportar nuestro granito de arena para que no se pierda.
+
+Esto no es solo una asociación, es un grupo de gente con ganas de hacer barrio, de cuidar lo nuestro y de seguir creando recuerdos para las generaciones que vienen. Porque creemos en Torrero, en su gente y en todo lo que todavía está por venir.
+</p>
+  </div>
+</section>
+
+<section id="actividades">
+  <div class="card">
+    <h2>Actividades</h2>
+    <div class="grid">
+      <div>🎭 Eventos culturales</div>
+      <div>🎉 Fiestas</div>
+      <div>👧 Infantil</div>
+      <div>🏛️ Tradiciones</div>
+    </div>
+  </div>
+</section>
+
+<section id="eventos">
+  <div class="card">
+    <h2>Eventos</h2>
+
+    <p style="font-size:18px; font-weight:bold; margin-bottom:10px;">
+      🎉 Fiestas de Torrero 2026 🎉
+    </p>
+
+    <p style="margin-bottom:20px;">
+      📅 Del 10 al 14 de junio de 2026
+    </p>
+
+    <a href="programa.html" class="btn-main">
+      Ver Programa de Fiestas
+    </a>
+
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="card">
+    <h2>Galería</h2>
+
+    <p style="margin-bottom:20px; font-weight:600; color:#b22222;">
+      📸 Próximamente fotos de las Fiestas 2026
+    </p>
+
+    <div class="grid galeria">
+      <img src="torrero.jpg" alt="Torrero">
+      <img src="parque.jpg" alt="Parque de la Paz">
+      <img src="cantero.jpg" alt="Barrio">
+    </div>
+
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="card">
+    <h2>Contacto</h2>
+    <p><strong>Correos de contacto:</strong></p>
+    <p>📧 General: <a href="mailto:comisionfiestastorrero2026@gmail.com">comisionfiestastorrero2026@gmail.com</a></p>
+    <p>📧 Secretaría: <a href="mailto:secretaria.accioncultural@gmail.com">secretaria.accioncultural@gmail.com</a></p>
+    <p>📧 Tesorería: <a href="mailto:tesoreriaaccionculturaltorrero@gmail.com">tesoreriaaccionculturaltorrero@gmail.com</a></p>
+
+    <form action="https://formspree.io/f/mgopkllk" method="POST" id="formulario">
+      <input type="hidden" name="_subject" value="Nuevo mensaje desde la web">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      
+      <input type="email" name="email" placeholder="Tu email" required>
+      <input type="hidden" name="_replyto" value="">
+      
+      <textarea name="mensaje" placeholder="Escribe tu mensaje..." required></textarea>
+
+      <button type="submit" class="btn-main">Enviar mensaje</button>
+    </form>
+
+    <p id="mensajeEnviado" style="display:none; margin-top:15px; color:green; font-weight:600;">
+      ✅ Mensaje enviado correctamente
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Acción Cultural Torrero</p>
+  <p>Síguenos en Instagram: 
+    <a href="https://www.instagram.com/cabezudos.torrero" target="_blank" style="color:#fff; text-decoration:underline;">
+      @cabezudos.torrero
+    </a>
+  </p>
+</footer>
+
+<!-- BOTÓN WHATSAPP -->
+<a href="https://wa.me/34600000000?text=Hola%20vengo%20de%20la%20web%20de%20Acción%20Cultural%20Torrero" target="_blank" id="whatsappBtn" title="Escríbenos por WhatsApp">💬</a>
+
+<div id="fechaHora" style="position:fixed; bottom:10px; right:10px; background:#000; color:#fff; padding:10px 15px; border-radius:10px; font-size:14px;"></div>
+
+<!-- MODAL -->
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:black; justify-content:center; align-items:center;">
+  <img id="imgModal" style="max-width:90%; max-height:90%;">
+</div>
+
+<script>
+  const sections = document.querySelectorAll('section');
+  window.addEventListener('scroll', () => {
+    sections.forEach(sec => {
+      if(sec.getBoundingClientRect().top < window.innerHeight*0.8){
+        sec.classList.add('visible');
+      }
+    });
+  });
+
+  // carrusel automático
+  const slides = document.querySelectorAll('.carousel img');
+  let index = 0;
+
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 4000);
+
+  // modal
+  const imgs = document.querySelectorAll('.galeria img');
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('imgModal');
+
+  imgs.forEach(img => {
+    img.onclick = () => {
+      modal.style.display = 'flex';
+      modalImg.src = img.src;
+    }
+  });
+
+  modal.onclick = () => modal.style.display = 'none';
+  // Fecha y hora en tiempo real
+  function actualizarHora() {
+    const ahora = new Date();
+    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const fecha = ahora.toLocaleDateString('es-ES', opciones);
+    const hora = ahora.toLocaleTimeString('es-ES');
+    document.getElementById('fechaHora').innerHTML = `${fecha} - ${hora}`;
+  }
+
+  setInterval(actualizarHora, 1000);
+  actualizarHora();
+  // Mensaje enviado
+  const form = document.getElementById('formulario');
+  const mensaje = document.getElementById('mensajeEnviado');
+
+  form.addEventListener('submit', function(){
+    // poner email como reply-to
+    const emailInput = form.querySelector('input[name="email"]');
+    const replyTo = form.querySelector('input[name="_replyto"]');
+    replyTo.value = emailInput.value;
+    setTimeout(() => {
+      mensaje.style.display = 'block';
+    }, 500);
+  });
+
+</script>
+
+</body>
+</html>
