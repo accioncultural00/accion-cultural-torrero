@@ -176,10 +176,49 @@ header {
       padding:30px;
     }
 
-    @media(max-width:600px){
-      nav a {display:block; margin:10px 0;}
-      header h1 {font-size:2rem;}
-    }
+  @media (max-width: 768px) {
+
+  /* NAV */
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  /* HEADER */
+  header {
+    height: auto;
+    padding: 100px 20px;
+    text-align: center;
+  }
+
+  /* TÍTULO */
+  header h1 {
+    font-size: 2rem;
+  }
+
+  /* TEXTO */
+  header p {
+    font-size: 1rem;
+  }
+
+  /* BOTÓN */
+  .btn-main {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  /* IMÁGENES */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* EVITAR SCROLL LATERAL */
+  body {
+    overflow-x: hidden;
+  }
+
+}
   
     /* WhatsApp Button */
     #whatsappBtn {
