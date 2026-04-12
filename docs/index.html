@@ -294,10 +294,40 @@ header {
     }
 @media(max-width:768px){
   body {
-    background: red !important;
+    background: @media (max-width: 768px){
+
+  /* ICONO */
+  .menu-icon {
+    display: block;
+    font-size: 30px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  /* OCULTAR MENU NORMAL */
+  nav a {
+    display: none;
+  }
+
+  /* MENU AL ABRIR */
+  nav.active a {
+    display: block;
+    background: #000;
+    color: white;
+    padding: 15px;
+  }
+
+}
   }
 }
-  </style>
+  <script>
+function toggleMenu() {
+  document.querySelector("nav").classList.toggle("active");
+}
+</script>
+    /style>
 </head>
 <body>
 
