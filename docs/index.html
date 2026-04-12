@@ -217,7 +217,33 @@ header {
   body {
     overflow-x: hidden;
   }
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+    @media (max-width: 768px) {
 
+  /* mostrar icono */
+  .menu-icon {
+    display: block;
+    font-size: 30px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  /* ocultar menú normal */
+  nav a {
+    display: none;
+  }
+
+  /* menú desplegable */
+  nav.active a {
+    display: block;
+    background: #000;
+    color: white;
+    padding: 15px;
+  }
+
+}
 }
   
     /* WhatsApp Button */
